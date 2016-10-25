@@ -37,7 +37,8 @@
     service.getMatchedMenuItems = function(searchTerm){
       return $http({url: APIUrl}).then(function (result) {
         var foundItems = result.data.menu_items.filter(function(c){
-          return ~c.name.toLowerCase().indexOf(searchTerm.toLowerCase());
+          return ~c.name.toLowerCase().indexOf(searchTerm.toLowerCase()) ||
+                 ~c.description.toLowerCase().indexOf(searchTerm.toLowerCase());
         });
 
         return foundItems;
