@@ -19,7 +19,10 @@
     </div>
 
     <!-- found-items should be implemented as a component -->
-    <found-items items="narrowIt.found" loading="narrowIt.loading" on-remove="narrowIt.onRemove(index)"></found-items>
+    <found-items items="narrowIt.found"
+                 loading="narrowIt.loading"
+                 on-remove="narrowIt.onRemove(index)"
+                 search-term="narrowIt.searchTerm"></found-items>
   </div>
   <script src="scripts/vendor/angular.min.js" charset="utf-8"></script>
   <script src="scripts/app.js" charset="utf-8"></script>

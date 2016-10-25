@@ -4,6 +4,7 @@
   .controller('NarrowItDownController', NarrowItDownController)
   .service('MenuSearchService', MenuSearchService)
   .directive('foundItems', FoundItemsDirective)
+  .filter('highlight', SearchFilterFactory)
   .constant('APIUrl', 'https://davids-restaurant.herokuapp.com/menu_items.json');
 
   NarrowItDownController.$inject = ['MenuSearchService'];
@@ -52,6 +53,7 @@
       scope: {
         found: '<items',
         loading: '<',
+        searchTerm: '<',
         onRemove: '&'
       },
       controller: FoundItemsDirectiveController,
@@ -65,5 +67,16 @@
   function FoundItemsDirectiveController(){
     var foundItems = this;
 
+  }
+
+  SearchFilterFactory.$inject = ['$sce'];
+  function SearchFilterFactory($sce){
+    return function(input, highlight){
+      return $sce.trustAsHtml(
+        input.replace(new RegExp(highlight, 'gi'), function(str) {
+          return '<i class="text-success">'+str+'</i>'
+        })
+      );
+    }
   }
 })();

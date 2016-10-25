@@ -7,8 +7,11 @@
 <ul class="list-group">
   <li ng-repeat="item in foundItems.found" class="list-group-item">
     <div class="name">
-      <b><span class="badge">{{item.short_name}}</span> {{item.name}}</b>
-      <div class="text-muted"><small>{{item.description}}</small></div>
+      <b>
+        <span class="badge">{{item.short_name}}</span>
+        <span ng-bind-html="item.name | highlight: foundItems.searchTerm"></span>
+      </b>
+      <div class="text-muted"><small ng-bind-html="item.description | highlight: foundItems.searchTerm"></small></div>
     </div>
     <button class="btn btn-danger"
             ng-click="foundItems.onRemove({index: $index})">
