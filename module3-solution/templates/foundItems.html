@@ -9,7 +9,7 @@
     <div class="name">
       <b>
         <span class="badge">{{item.short_name}}</span>
-        <span ng-bind-html="::item.name | highlight: foundItems.searchTerm"></span>
+        <span>{{::item.name}}</span>
       </b>
       <div class="text-muted"><small ng-bind-html="::item.description | highlight: foundItems.searchTerm"></small></div>
     </div>
