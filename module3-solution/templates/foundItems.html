@@ -1,0 +1,18 @@
+<div ng-if="foundItems.found.length==0 && !foundItems.loading"
+     class="text-danger">
+  Nothing found
+</div>
+<div ng-if="foundItems.loading" class="text-info">Loading...</div>
+<ul class="list-group">
+  <li ng-repeat="item in foundItems.found" class="list-group-item">
+    <span class="badge">{{item.short_name}}</span>
+    <div class="name">
+      <b>{{item.name}}</b>
+      <div class="text-muted"><small>{{item.description}}</small></div>
+    </div>
+    <button class="btn btn-danger"
+            ng-click="foundItems.onRemove({index: $index})">
+      Don't want this one!
+    </button>
+  </li>
+</ul>
