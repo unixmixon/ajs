@@ -9,9 +9,9 @@
     <div class="name">
       <b>
         <span class="badge">{{item.short_name}}</span>
-        <span ng-bind-html="item.name | highlight: foundItems.searchTerm"></span>
+        <span ng-bind-html="::item.name | highlight: foundItems.searchTerm"></span>
       </b>
-      <div class="text-muted"><small ng-bind-html="item.description | highlight: foundItems.searchTerm"></small></div>
+      <div class="text-muted"><small ng-bind-html="::item.description | highlight: foundItems.searchTerm"></small></div>
     </div>
     <button class="btn btn-danger"
             ng-click="foundItems.onRemove({index: $index})">
