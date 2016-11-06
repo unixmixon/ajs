@@ -26,7 +26,7 @@ RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
       }
     })
 
-    .state('items', {
+    .state('categories.items', {
       url: '/items/{shortName}',
       templateUrl: 'src/menuapp/templates/main-items.template.html',
       controller: 'ItemsListController as itemsList',

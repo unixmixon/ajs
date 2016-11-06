@@ -1,7 +1,7 @@
 <ul class="list-group">
   <li ng-repeat="item in $ctrl.items" class="list-group-item">
       <h5 class="list-group-item-heading">
-        <a ui-sref="items({shortName: item.short_name})">{{ item.name }}</a>
+        <a ui-sref="categories.items({shortName: item.short_name})">{{ item.name }}</a>
       </h4>
       <p class="list-group-item-text text-muted">{{ item.special_instructions }}</p>
   </li>
