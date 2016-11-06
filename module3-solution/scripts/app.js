@@ -54,18 +54,10 @@
         loading: '<',
         searchTerm: '<',
         onRemove: '&'
-      },
-      controller: FoundItemsDirectiveController,
-      controllerAs: 'foundItems',
-      bindToController: true
+      }
     };
 
     return ddo;
-  }
-
-  function FoundItemsDirectiveController(){
-    var foundItems = this;
-
   }
 
   SearchFilterFactory.$inject = ['$sce'];
