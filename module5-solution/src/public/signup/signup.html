@@ -1,0 +1,68 @@
+<div class="container" ng-controller="SignupController as signup">
+  <fieldset ng-if="!signup.complete">
+    <legend>Sign Up</legend>
+    <form novalidate name='signupForm'>
+      <div class="form-group" ng-class="{'has-error': signupForm.firstname.$error.required && signupForm.firstname.$touched}">
+        <label for="firstname">Firstname</label>
+        <input type="text"
+               class="form-control"
+               id="firstname"
+               name="firstname"
+               placeholder="Firstname"
+               ng-model="signup.user.firstname"
+               required>
+        <span ng-if="signupForm.firstname.$error.required && signupForm.firstname.$touched" class="help-block">Provide firstname please</span>
+      </div>
+      <div class="form-group" ng-class="{'has-error': signupForm.lastname.$error.required && signupForm.lastname.$touched}">
+        <label for="lastname">Lastname</label>
+        <input type="text"
+               class="form-control"
+               id="lastname"
+               name="lastname"
+               placeholder="Lastname"
+               ng-model="signup.user.lastname"
+               required>
+        <span ng-if="signupForm.lastname.$error.required && signupForm.lastname.$touched" class="help-block">Provide lastname please</span>
+      </div>
+      <div class="form-group" ng-class="{'has-error': signupForm.email.$invalid && signupForm.email.$touched}">
+        <label for="email">Email</label>
+        <input type="email"
+               class="form-control"
+               id="email"
+               name="email"
+               placeholder="E-mail"
+               ng-model="signup.user.email"
+               required>
+        <span ng-if="signupForm.email.$invalid && signupForm.email.$touched" class="help-block">Provide valid email please</span>
+      </div>
+      <div class="form-group" ng-class="{'has-error': signupForm.phone.$invalid && signupForm.phone.$touched}">
+        <label for="phone">Phone</label>
+        <input type="phone"
+               class="form-control"
+               id="phone"
+               name="phone"
+               placeholder="Phone ###-###-####"
+               pattern="(\d{3})-(\d{3})-(\d{4})"
+               ng-model="signup.user.phone"
+               required>
+        <span ng-if="signupForm.phone.$invalid && signupForm.phone.$touched" class="help-block">Provide valid email please</span>
+      </div>
+      <div class="form-group" ng-class="{'has-error': signup.dishError}">
+        <label for="short_name">Favorite dish</label>
+        <input type="text"
+               class="form-control"
+               id="short_name"
+               name="short_name"
+               placeholder="Favorite dish"
+               ng-model="signup.user.short_name"
+               required>
+        <span ng-if="signup.dishError" class="help-block">No such menu number exists</span>
+      </div>
+
+      <button class="btn btn-success"
+              ng-click="signup.submit()"
+              ng-disabled="signupForm.$invalid">Submit</button>
+    </form>
+  </fieldset>
+  <p ng-if="signup.complete">Your information has been saved
+</div>
